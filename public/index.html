@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#102f42" />
+    <meta name="description" content="Dashboard member Indonesia Hospitality Community untuk mengelola kartu dan menikmati benefit eksklusif." />
+    <title>IHC Member Dashboard</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+      <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19M7 15h3"/></symbol>
+      <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 10h16v11H4zM2.5 6.5h19V10h-19zM12 6.5V21"/><path d="M12 6.5H7.8a2.3 2.3 0 1 1 2.2-3c.8 1.2 2 3 2 3Zm0 0h4.2a2.3 2.3 0 1 0-2.2-3c-.8 1.2-2 3-2 3Z"/></symbol>
+      <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 10v10h16V10M7 20v-6h5v6M3 4h18l-1 6H4L3 4Z"/><path d="M4 10c1.2 1.3 2.8 1.3 4 0 1.2 1.3 2.8 1.3 4 0 1.2 1.3 2.8 1.3 4 0 1.2 1.3 2.8 1.3 4 0"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.3 2.3 0 1 1 3.5 2c-1 .6-1.3 1.2-1.3 2M12 17h.01"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 8h18c0-1-3-1-3-8ZM10 21h4"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-location" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-food" viewBox="0 0 24 24"><path d="M6 3v8M3 3v5c0 2 1.3 3 3 3s3-1 3-3V3M6 11v10M16 3v18M16 3c3 1 5 4 5 8h-5"/></symbol>
+      <symbol id="i-spa" viewBox="0 0 24 24"><path d="M12 21c-5-2-7-6-7-10 4 0 6 1 7 4 1-3 3-4 7-4 0 4-2 8-7 10Z"/><path d="M12 15c-2-3-2-7 0-11 2 4 2 8 0 11Z"/></symbol>
+      <symbol id="i-car" viewBox="0 0 24 24"><path d="m5 11 2-5h10l2 5M4 11h16v7H4zM7 18v2M17 18v2"/><circle cx="7.5" cy="14.5" r="1"/><circle cx="16.5" cy="14.5" r="1"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></symbol>
+      <symbol id="i-crown" viewBox="0 0 24 24"><path d="m4 7 4 4 4-7 4 7 4-4-2 11H6L4 7ZM6 21h12"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 5H5v14h4M14 8l4 4-4 4M8 12h10"/></symbol>
+    </svg>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navigasi utama">
+        <a class="brand" href="#" aria-label="IHC Home">
+          <span class="brand-mark">I</span>
+          <span><b>IHC</b><small>MEMBERS CLUB</small></span>
+        </a>
+
+        <nav class="main-nav">
+          <a class="nav-link active" href="#overview"><svg><use href="#i-grid"/></svg><span>Overview</span></a>
+          <a class="nav-link" href="#cards"><svg><use href="#i-card"/></svg><span>Kartu Saya</span></a>
+          <a class="nav-link" href="#benefits"><svg><use href="#i-gift"/></svg><span>Benefit</span><em>12</em></a>
+          <a class="nav-link" href="#partners"><svg><use href="#i-store"/></svg><span>Mitra</span></a>
+          <a class="nav-link" href="#activity"><svg><use href="#i-clock"/></svg><span>Aktivitas</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a class="nav-link" href="#support"><svg><use href="#i-help"/></svg><span>Pusat Bantuan</span></a>
+          <button class="profile-mini" type="button">
+            <span class="avatar">AR</span>
+            <span><b>Andi Rahman</b><small>Gold Member</small></span>
+            <svg><use href="#i-chevron"/></svg>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">MINGGU, 4 OKTOBER 2026</p>
+            <h1>Selamat datang, Andi <span aria-hidden="true">👋</span></h1>
+          </div>
+          <div class="top-actions">
+            <label class="search-box">
+              <svg><use href="#i-search"/></svg>
+              <span class="sr-only">Cari benefit atau mitra</span>
+              <input id="searchInput" type="search" placeholder="Cari benefit atau mitra" autocomplete="off" />
+              <kbd>⌘ K</kbd>
+            </label>
+            <button class="icon-button notification-button" type="button" aria-label="Notifikasi">
+              <svg><use href="#i-bell"/></svg><span></span>
+            </button>
+          </div>
+        </header>
+
+        <section class="welcome-strip" aria-label="Ringkasan akun">
+          <div>
+            <span class="pulse-dot"></span>
+            <p>Status member Anda aktif hingga <strong>18 September 2027</strong></p>
+          </div>
+          <button class="text-button" type="button" data-toast="Detail masa berlaku dibuka">Lihat detail <svg><use href="#i-arrow"/></svg></button>
+        </section>
+
+        <div class="dashboard-grid">
+          <section class="member-area" id="cards">
+            <div class="section-heading">
+              <div><p class="eyebrow">IDENTITAS KEANGGOTAAN</p><h2>Kartu member Anda</h2></div>
+              <button class="ghost-button" type="button" data-toast="Kode QR siap ditampilkan">Tampilkan QR</button>
+            </div>
+
+            <div class="card-stage">
+              <div class="membership-card tier-gold" id="membershipCard" tabindex="0" aria-label="Kartu Gold member Andi Rahman">
+                <div class="card-glow"></div>
+                <div class="card-top">
+                  <div class="card-logo"><span>I</span><b>IHC</b></div>
+                  <span class="tier-label">GOLD</span>
+                </div>
+                <div class="card-chip" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="card-bottom">
+                  <div><small>NAMA MEMBER</small><strong>ANDI RAHMAN</strong></div>
+                  <div class="member-number"><small>MEMBER ID</small><button id="copyId" type="button">IHC 0829 4012 <svg><use href="#i-copy"/></svg></button></div>
+                </div>
+                <svg class="card-crown"><use href="#i-crown"/></svg>
+                <div class="card-orbit orbit-one"></div><div class="card-orbit orbit-two"></div>
+              </div>
+              <p class="tilt-hint"><span></span> Gerakkan kursor di atas kartu</p>
+            </div>
+
+            <div class="tier-selector" aria-label="Pilih tampilan kartu">
+              <button class="tier-option" data-tier="white" type="button"><i></i><span><b>Flat White</b><small>Diskon hingga 5%</small></span></button>
+              <button class="tier-option" data-tier="silver" type="button"><i></i><span><b>Silver</b><small>Diskon hingga 15%</small></span></button>
+              <button class="tier-option active" data-tier="gold" type="button"><i></i><span><b>Gold</b><small>Diskon hingga 20%</small></span><svg><use href="#i-check"/></svg></button>
+              <button class="tier-option" data-tier="emerald" type="button"><i></i><span><b>Emerald</b><small>Diskon hingga 25%</small></span></button>
+            </div>
+          </section>
+
+          <aside class="account-panel">
+            <div class="points-card">
+              <div class="points-head"><span class="icon-orb"><svg><use href="#i-star"/></svg></span><div><p>IH POIN</p><small>Diperbarui hari ini</small></div><button type="button" aria-label="Info poin">i</button></div>
+              <div class="points-value"><strong>2.480</strong><span>poin</span></div>
+              <div class="progress-track"><i></i></div>
+              <p><strong>520 poin lagi</strong> menuju reward berikutnya</p>
+              <button class="primary-button" type="button" data-toast="Katalog reward akan segera hadir">Tukar Poin <svg><use href="#i-arrow"/></svg></button>
+            </div>
+
+            <div class="mini-stats">
+              <article><span><svg><use href="#i-gift"/></svg></span><div><strong>12</strong><small>Benefit tersedia</small></div></article>
+              <article><span><svg><use href="#i-store"/></svg></span><div><strong>24</strong><small>Mitra pilihan</small></div></article>
+            </div>
+          </aside>
+        </div>
+
+        <section class="benefits-section" id="benefits">
+          <div class="section-heading">
+            <div><p class="eyebrow">KHUSUS UNTUK ANDA</p><h2>Benefit pilihan minggu ini</h2></div>
+            <a class="text-button" href="#partners">Lihat semua <svg><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="benefit-grid" id="benefitGrid">
+            <article class="benefit-card" data-search="hotel bali resort liburan ayodya">
+              <div class="benefit-visual visual-hotel"><span class="benefit-tag">HOTEL</span><div class="sun"></div><div class="hotel-shape"><i></i><i></i><i></i><i></i></div></div>
+              <div class="benefit-content"><span class="partner-logo">AYODYA</span><h3>Staycation lebih berkesan</h3><p>Diskon <strong>20%</strong> untuk kamar &amp; F&amp;B.</p><button type="button" data-toast="Benefit Ayodya disimpan">Klaim benefit <svg><use href="#i-arrow"/></svg></button></div>
+            </article>
+            <article class="benefit-card" data-search="restoran kuliner makan bumbu malang">
+              <div class="benefit-visual visual-food"><span class="benefit-tag">KULINER</span><div class="plate"><i></i></div><div class="leaf leaf-a"></div><div class="leaf leaf-b"></div></div>
+              <div class="benefit-content"><span class="partner-logo">BUMBU</span><h3>Rasa lokal, momen spesial</h3><p>Nikmati potongan <strong>15%</strong> tanpa minimum.</p><button type="button" data-toast="Benefit Bumbu disimpan">Klaim benefit <svg><use href="#i-arrow"/></svg></button></div>
+            </article>
+            <article class="benefit-card" data-search="spa wellness floris relaksasi">
+              <div class="benefit-visual visual-spa"><span class="benefit-tag">WELLNESS</span><div class="spa-stone one"></div><div class="spa-stone two"></div><div class="spa-flower">✦</div></div>
+              <div class="benefit-content"><span class="partner-logo">FLORIS SPA</span><h3>Waktunya kembali rileks</h3><p>Diskon <strong>10%</strong> untuk semua treatment.</p><button type="button" data-toast="Benefit Floris Spa disimpan">Klaim benefit <svg><use href="#i-arrow"/></svg></button></div>
+            </article>
+          </div>
+          <p class="empty-state" id="emptyState">Benefit yang Anda cari belum tersedia.</p>
+        </section>
+
+        <section class="lower-grid">
+          <div class="partners-section" id="partners">
+            <div class="section-heading"><div><p class="eyebrow">JELAJAHI</p><h2>Mitra populer</h2></div><button class="round-arrow" type="button" aria-label="Mitra berikutnya"><svg><use href="#i-arrow"/></svg></button></div>
+            <div class="partner-list">
+              <button type="button" data-toast="Menampilkan mitra Hotel & Resort"><span><svg><use href="#i-location"/></svg></span><div><b>Hotel &amp; Resort</b><small>9 mitra</small></div><svg><use href="#i-chevron"/></svg></button>
+              <button type="button" data-toast="Menampilkan mitra Kuliner"><span><svg><use href="#i-food"/></svg></span><div><b>Kuliner</b><small>7 mitra</small></div><svg><use href="#i-chevron"/></svg></button>
+              <button type="button" data-toast="Menampilkan mitra Wellness"><span><svg><use href="#i-spa"/></svg></span><div><b>Wellness</b><small>4 mitra</small></div><svg><use href="#i-chevron"/></svg></button>
+              <button type="button" data-toast="Menampilkan mitra Otomotif"><span><svg><use href="#i-car"/></svg></span><div><b>Otomotif</b><small>4 mitra</small></div><svg><use href="#i-chevron"/></svg></button>
+            </div>
+          </div>
+
+          <div class="activity-section" id="activity">
+            <div class="section-heading"><div><p class="eyebrow">TERBARU</p><h2>Aktivitas poin</h2></div><button class="text-button" type="button" data-toast="Riwayat lengkap dibuka">Riwayat</button></div>
+            <div class="activity-list">
+              <article><span class="activity-icon plus"><svg><use href="#i-star"/></svg></span><div><b>Belanja di Alva Mart</b><small>Hari ini, 10:24</small></div><strong>+120</strong></article>
+              <article><span class="activity-icon"><svg><use href="#i-gift"/></svg></span><div><b>Redeem voucher spa</b><small>2 Okt 2026, 15:40</small></div><strong class="minus">−500</strong></article>
+              <article><span class="activity-icon plus"><svg><use href="#i-star"/></svg></span><div><b>Bonus member bulanan</b><small>1 Okt 2026, 08:00</small></div><strong>+250</strong></article>
+            </div>
+          </div>
+        </section>
+
+        <footer><span>© 2026 Indonesia Hospitality Community</span><span>Member care · 0812 3456 7890</span></footer>
+      </main>
+
+      <nav class="mobile-nav" aria-label="Navigasi mobile">
+        <a class="active" href="#overview"><svg><use href="#i-grid"/></svg><span>Home</span></a>
+        <a href="#cards"><svg><use href="#i-card"/></svg><span>Kartu</span></a>
+        <a class="mobile-main-action" href="#benefits"><span><svg><use href="#i-gift"/></svg></span><small>Benefit</small></a>
+        <a href="#partners"><svg><use href="#i-store"/></svg><span>Mitra</span></a>
+        <a href="#activity"><svg><use href="#i-clock"/></svg><span>Aktivitas</span></a>
+      </nav>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"><svg><use href="#i-check"/></svg><span></span></div>
+  </body>
+</html>
